@@ -53,25 +53,25 @@ COMMODITY_INFO = {
         "Trading": "Priced in USD per barrel. The standard contract size is 1,000 barrels. Heavily influenced by US production, refining demand, and inventory reports.",
         "Market": "Traded on NYMEX (CME Group)",
     },
-    "Dutch TTF Natural Gas": {
+    "Dutch TTF Natural Gas Futures": {
         "Description": "The Title Transfer Facility (TTF) is a virtual trading point for natural gas in the Netherlands. It is the leading European benchmark for gas prices and one of the most liquid gas trading points in Europe.",
         "trading_hours": "Monday-Friday: 07:00-17:00 CET",
         "Trading": "Priced in USD per MMBtu. The standard contract size is 10,000 MMBtu. Highly influenced by seasonal demand, production levels, LNG exports, and storage reports.", 
         "Market": "Traded on NYMEX (CME Group)",
     },
-    "London Gas Oil": {
+    "London Gas Oil Futures": {
         "Description": "London Gas Oil (also known as diesel or heating oil) is a middle distillate oil used both as a diesel automotive fuel and heating fuel. It's the primary hedging tool for the middle of the oil barrel.",
         "trading_hours": "Monday-Friday: 01:00-23:00 GMT",
         "Trading": "Priced in US dollars per metric ton. The contract size is 100 metric tons. Often used for hedging by refiners, traders, and transportation companies.", 
         "Market": "Traded on ICE Futures Europe",
     },
-    "Micro Henry Hub Natural Gas": {
+    "Micro Henry Hub Natural Gas Futures": {
         "Description": "Micro Henry Hub Natural Gas futures are smaller-sized contracts that track natural gas prices at the Henry Hub in Louisiana, which is the primary price benchmark for natural gas futures in North America.",
         "trading_hours": "Sunday-Friday: 18:00-17:00 EST",
         "Trading": "Priced in USD per MMBtu (million British thermal units). The contract size is 2,500 MMBtu, which is 1/10th of the standard Henry Hub contract. More accessible for retail investors but still impacted by storage levels, weather, and production trends.", 
         "Market": "Traded on CME Group (NYMEX).",
     },
-    "Natural Gas": {
+    "Natural Gas Futures": {
         "Description": "Henry Hub Natural Gas futures are standardized contracts for the physical delivery of natural gas. The contracts are based on delivery at the Henry Hub in Louisiana, the nexus of 16 intra- and interstate natural gas pipeline systems.",
         "trading_hours": "Sunday-Friday: 18:00-17:00 EST",
         "Trading": "Priced in USD per MMBtu. The standard contract size is 10,000 MMBtu. Highly influenced by seasonal demand, production levels, LNG exports, and storage reports.", 
@@ -90,6 +90,7 @@ with col2:
     if st.button('🔄 Refresh'):
         st.session_state.last_refresh = datetime.now()
         st.experimental_rerun()
+        
 # Display commodity information
 st.subheader("Commodity Information")
 if selected_commodity in COMMODITY_INFO:
