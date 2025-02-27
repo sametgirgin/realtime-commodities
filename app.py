@@ -84,6 +84,12 @@ selected_commodity = st.selectbox(
     list(COMMODITIES.keys())
 )
 
+# Add refresh button
+col1, col2 = st.columns([4, 1])
+with col2:
+    if st.button('🔄 Refresh'):
+        st.session_state.last_refresh = datetime.now()
+        st.experimental_rerun()
 # Display commodity information
 st.subheader("Commodity Information")
 if selected_commodity in COMMODITY_INFO:
@@ -108,13 +114,6 @@ if selected_commodity in COMMODITY_INFO:
 
 # Add a divider
 st.markdown("---")
-
-# Add refresh button
-col1, col2 = st.columns([4, 1])
-with col2:
-    if st.button('🔄 Refresh'):
-        st.session_state.last_refresh = datetime.now()
-        st.experimental_rerun()
 
 try:
     # Read CSV file
