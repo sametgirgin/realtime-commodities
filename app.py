@@ -28,7 +28,7 @@ COMMODITIES = {
     "Dutch TTF Natural Gas Futures": "pricedata/Dutch TTF Natural Gas Futures Historical Data.csv",
     "London Gas Oil Futures": "pricedata/London Gas Oil Futures Historical Data.csv",
     "Micro Henry Hub Natural Gas Futures": "pricedata/Micro Henry Hub Natural Gas Futures Historical Data.csv",
-    "Natural Gas Futures": "pricedata/Natural Gas Futures Historical Data.csv"
+    "Natural Gas Futures": "pricedata/Natural Gas Futures Historical Data.csv",
     "Brent Oil": "pricedata/Brent Oil Futures Historical Data.csv",
     "Crude Oil WTI": "pricedata/Crude Oil WTI Futures Historical Data.csv",
     "Carbon Emissions": "pricedata/Carbon Emissions Futures Historical Data.csv",
