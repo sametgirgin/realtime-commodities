@@ -102,6 +102,17 @@ if selected_commodity in COMMODITY_INFO:
     with tabs[0]:
         st.markdown("### Description")
         st.write(info["Description"])
+        
+    with tabs[1]:
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown("### Trading Hours")
+            st.write(info["trading_hours"])
+            st.markdown("### Trading")
+            st.write(info["Trading"])
+        with col2:
+            st.markdown("### Market")
+            st.write(info["Market"])
 
 # Add a divider
 st.markdown("---")
