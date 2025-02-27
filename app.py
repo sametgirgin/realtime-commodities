@@ -152,10 +152,6 @@ try:
         # Display chart
         st.subheader(f"{selected_commodity} Price History")
         st.line_chart(df.set_index('Date')['Price'])
-        
-        # Display additional information
-        st.subheader("Latest Trading Information")
-        col1, col2 = st.columns(2)
     
         # Add date range selector
         st.subheader("Date Range Selection")
