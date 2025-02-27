@@ -17,21 +17,16 @@ if 'last_refresh' not in st.session_state:
 # Title and description
 st.title("Commodity Prices")
 st.markdown("Select a commodity to view its price and trends")
-"""
+
 # Dictionary of commodities and their corresponding CSV files
-COMMODITIES = {
-    "Brent Oil": "pricedata/Brent Oil Futures Historical Data.csv",
-    "Carbon Emissions": "pricedata/Carbon Emissions Futures Historical Data.csv",
-    "Crude Oil WTI": "pricedata/Crude Oil WTI Futures Historical Data.csv",
-    "Dutch TTF Natural Gas": "pricedata/Dutch TTF Natural Gas Futures Historical Data.csv",
-    "E-mini Crude Oil": "pricedata/E-mini Crude Oil Futures Historical Data.csv",
-    "Gasoline RBOB": "pricedata/Gasoline RBOB Futures Historical Data.csv",
-    "Heating Oil": "pricedata/Heating Oil Futures Historical Data.csv",
-    "London Gas Oil": "pricedata/London Gas Oil Futures Historical Data.csv",
-    "Micro Henry Hub Natural Gas": "pricedata/Micro Henry Hub Natural Gas Futures Historical Data.csv",
-    "Natural Gas": "pricedata/Natural Gas Futures Historical Data.csv"
-}
-"""
+#COMMODITIES = {
+    #"Brent Oil": "pricedata/Brent Oil Futures Historical Data.csv",
+    #"Carbon Emissions": "pricedata/Carbon Emissions Futures Historical Data.csv",
+    #"Crude Oil WTI": "pricedata/Crude Oil WTI Futures Historical Data.csv",
+    #"E-mini Crude Oil": "pricedata/E-mini Crude Oil Futures Historical Data.csv",
+    #"Gasoline RBOB": "pricedata/Gasoline RBOB Futures Historical Data.csv",
+    #"Heating Oil": "pricedata/Heating Oil Futures Historical Data.csv"}
+
 COMMODITIES = {
     "Dutch TTF Natural Gas Futures": "pricedata/Dutch TTF Natural Gas Futures Historical Data.csv",
     "London Gas Oil Futures": "pricedata/London Gas Oil Futures Historical Data.csv",
@@ -91,23 +86,7 @@ try:
         # Display additional information
         st.subheader("Latest Trading Information")
         col1, col2 = st.columns(2)
-        """
-        try:
-            with col1:
-                st.metric("Day's High", f"${df['High'].iloc[-1]:.2f}")
-                st.metric("Day's Low", f"${df['Low'].iloc[-1]:.2f}")
-            
-            with col2:
-                st.metric("Opening Price", f"${df['Open'].iloc[-1]:.2f}")
-                # Clean up Volume data
-                volume = df['Vol.'].iloc[-1]
-                if isinstance(volume, str):
-                    volume = volume.replace('K', '000').replace('M', '000000')
-                    volume = float(volume)
-                st.metric("Volume", f"{volume:,.0f}")
-        except:
-            st.warning("Some market data is unavailable")
-        """
+    
         # Add date range selector
         st.subheader("Date Range Selection")
         col1, col2 = st.columns(2)
@@ -119,11 +98,7 @@ try:
         # Filter data based on date range
         mask = (df['Date'].dt.date >= start_date) & (df['Date'].dt.date <= end_date)
         filtered_df = df.loc[mask]
-        """
-        # Display filtered data
-        st.subheader("Historical Data")
-        st.dataframe(filtered_df[['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']])
-        """
+        
 except Exception as e:
     st.error("Error loading data. Please try again later.")
     st.exception(e)
