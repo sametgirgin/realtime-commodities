@@ -17,7 +17,7 @@ if 'last_refresh' not in st.session_state:
 # Title and description
 st.title("Commodity Prices")
 st.markdown("Select a commodity to view its price and trends")
-
+"""
 # Dictionary of commodities and their corresponding CSV files
 COMMODITIES = {
     "Brent Oil": "pricedata/Brent Oil Futures Historical Data.csv",
@@ -31,7 +31,13 @@ COMMODITIES = {
     "Micro Henry Hub Natural Gas": "pricedata/Micro Henry Hub Natural Gas Futures Historical Data.csv",
     "Natural Gas": "pricedata/Natural Gas Futures Historical Data.csv"
 }
-
+"""
+COMMODITIES = {
+    "Dutch TTF Natural Gas Futures": "pricedata/Dutch TTF Natural Gas Futures Historical Data.csv",
+    "London Gas Oil Futures": "pricedata/London Gas Oil Futures Historical Data.csv",
+    "Micro Henry Hub Natural Gas Futures": "pricedata/Micro Henry Hub Natural Gas Futures Historical Data.csv",
+    "Natural Gas Futures": "pricedata/Natural Gas Futures Historical Data.csv"
+}
 # Create the dropdown
 selected_commodity = st.selectbox(
     "Choose a commodity",
@@ -85,7 +91,7 @@ try:
         # Display additional information
         st.subheader("Latest Trading Information")
         col1, col2 = st.columns(2)
-        
+        """
         try:
             with col1:
                 st.metric("Day's High", f"${df['High'].iloc[-1]:.2f}")
@@ -101,7 +107,7 @@ try:
                 st.metric("Volume", f"{volume:,.0f}")
         except:
             st.warning("Some market data is unavailable")
-        
+        """
         # Add date range selector
         st.subheader("Date Range Selection")
         col1, col2 = st.columns(2)
@@ -113,11 +119,11 @@ try:
         # Filter data based on date range
         mask = (df['Date'].dt.date >= start_date) & (df['Date'].dt.date <= end_date)
         filtered_df = df.loc[mask]
-        
+        """
         # Display filtered data
         st.subheader("Historical Data")
         st.dataframe(filtered_df[['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']])
-
+        """
 except Exception as e:
     st.error("Error loading data. Please try again later.")
     st.exception(e)
