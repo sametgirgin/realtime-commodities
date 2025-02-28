@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 import os
+from PIL import Image
 
 # Set page config
 st.set_page_config(
@@ -10,14 +11,27 @@ st.set_page_config(
     layout="wide"
 )
 
+# Create a container for the header with logo
+header_container = st.container()
+
+with header_container:
+    col1, col2 = st.columns([4, 1])
+    with col1:
+        st.title("Commodity Prices")
+        st.markdown("Select a commodity to view its price and trends")
+    with col2:
+        # Load and display the logo
+        try:
+            logo = Image.open("images/logo.png")  # Replace with your logo filename
+            st.image(logo, width=150)  # Adjust width as needed
+        except FileNotFoundError:
+            st.warning("Logo image not found")
+
+
 # Initialize session state for refresh
 if 'last_refresh' not in st.session_state:
     st.session_state.last_refresh = datetime.now()
-
-# Title and description
-st.title("Energy Commodity Prices")
-st.markdown("Select a commodity to view its price and trends")
-
+    
 # Dictionary of commodities and their corresponding CSV files
 #COMMODITIES = {
     #"E-mini Crude Oil": "pricedata/E-mini Crude Oil Futures Historical Data.csv",
