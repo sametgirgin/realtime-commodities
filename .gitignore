@@ -6,3 +6,6 @@ __pycache__/
 env/
 venv/
 .streamlit/ 
+.streamlit/secrets.toml 
+images/*
+!images/logo.png 
