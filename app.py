@@ -22,7 +22,7 @@ with header_container:
     with col2:
         # Load and display the logo
         try:
-            logo = Image.open("images/logo.png")  # Replace with your logo filename
+            logo = Image.open("image/logo.png")  # Replace with your logo filename
             st.image(logo, width=150)  # Adjust width as needed
         except FileNotFoundError:
             st.warning("Logo image not found")
